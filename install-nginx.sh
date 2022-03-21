@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # NGINX
 sudo apt install -y nginx
 
@@ -10,3 +12,11 @@ sudo openssl req -x509 -nodes -days 365 \
     -keyout /etc/ssl/private/nginx-selfsigned-ec.key \
     -out /etc/ssl/certs/nginx-selfsigned-ec.crt
 
+# Configure NGINX
+sudo rm /etc/nginx/sites-enabled/default
+curl https://raw.githubusercontent.com/FrontierHealth/snowstorm-scripts/main/nginx-snowstorm.conf -o /etc/nginx/sites-available/snowstorm
+ln -s /etc/nginx/sites-available/snowstorm /etc/nginx/sites-enabled/snowstorm
+
+# Start NGINX
+sudo systemctl enable nginx
+sudo systemctl start nginx
