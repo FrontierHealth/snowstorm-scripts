@@ -2,7 +2,11 @@
 
 # Install Snowstorm
 mkdir -p /opt/snowstorm && cd /opt/snowstorm
-wget https://github.com/IHTSDO/snowstorm/releases/download/7.6.0/snowstorm-7.6.0.jar
+curl -s https://api.github.com/repos/IHTSDO/snowstorm/releases/latest \
+  | grep "browser_download_url.*\.jar" \
+  | cut -d : -f 2,3 \
+  | tr -d \" \
+  | wget -q -i - -O snowstorm.jar
 
 mkdir -p /usr/local/lib/systemd/system/
 echo -e "[Unit]\n" \
