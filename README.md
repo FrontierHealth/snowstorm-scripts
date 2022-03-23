@@ -1,4 +1,4 @@
-# snowstorm-scripts
+# Snowstorm Scripts
 Scripts for initializing a new Snowstorm server.
 
 These files should make setup and installation of basic components quick and painless.
