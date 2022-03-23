@@ -17,7 +17,7 @@ echo -e "[Unit]\n" \
 "User=snowstorm\n" \
 "Type=simple\n" \
 "WorkingDirectory=/opt/snowstorm\n" \
-"ExecStart=java -Xms2g -Xmx4g -jar /opt/snowstorm/snowstorm.jar --snowstorm.rest-api.readonly=true --server.servlet.contextPath=/snowstorm/\n\n" \
+"ExecStart=java -Xms2g -Xmx4g -jar /opt/snowstorm/snowstorm.jar --snowstorm.rest-api.readonly=true --server.servlet.contextPath=/api/\n\n" \
 "[Install]\n" \
 "WantedBy=multi-user.target\n" | sudo tee /usr/local/lib/systemd/system/snowstorm.service
 
