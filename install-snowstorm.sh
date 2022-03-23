@@ -28,5 +28,5 @@ sudo /bin/systemctl enable snowstorm.service
 sudo useradd -G admin -M snowstorm
 sudo chown -R snowstorm: /opt/snowstorm/
 
-# Ensure that spring log file is not present. Wrong owner will cause error.
-sudo rm /tmp/spring.log
+# Ensure that spring log is owned by snowstorm. Wrong owner will cause error.
+sudo touch /tmp/spring.log && sudo chown snowstorm:admin /tmp/spring.log
