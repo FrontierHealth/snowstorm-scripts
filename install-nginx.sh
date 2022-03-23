@@ -14,9 +14,13 @@ sudo openssl req -x509 -nodes -days 365 \
 
 # Configure NGINX
 sudo rm /etc/nginx/sites-enabled/default
-curl https://raw.githubusercontent.com/FrontierHealth/snowstorm-scripts/main/nginx-snowstorm.conf -o /etc/nginx/sites-available/snowstorm
-ln -s /etc/nginx/sites-available/snowstorm /etc/nginx/sites-enabled/snowstorm
+sudo curl https://raw.githubusercontent.com/FrontierHealth/snowstorm-scripts/main/nginx-snowstorm.conf -o /etc/nginx/sites-available/snowstorm
+sudo ln -s /etc/nginx/sites-available/snowstorm /etc/nginx/sites-enabled/snowstorm
 
 # Start NGINX
 sudo systemctl enable nginx
 sudo systemctl start nginx
+
+# Firewall rules
+sudo ufw allow 80
+sudo ufw allow 443
